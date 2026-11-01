@@ -116,6 +116,14 @@ button:focus-visible,.slot:focus-visible,input:focus-visible{outline:3px solid #
 .result-mode .cert-spark{font-size:14px!important}
 @media(max-width:380px){.result-mode #certificate{gap:3px!important;padding:7px 6px!important}.result-mode .cert-mascot{font-size:27px!important}.result-mode .cert-story{font-size:.62rem!important}.result-mode .cert-level-errors{font-size:.52rem!important}}
 @media(max-height:720px) and (max-width:700px){.result-mode #certificate{gap:3px!important;padding:6px!important}.result-mode .cert-mascot{font-size:25px!important}.result-mode .cert-subtitle,.result-mode .cert-stars{display:none!important}.result-mode .cert-story{padding:4px!important;font-size:.63rem!important}.result-mode .cert-score-number #certscore{font-size:2.1rem!important}.result-mode .cert-student{padding:3px!important}.result-mode .cert-level{padding:2px 1px!important}}
+
+/* 教師閱卷優先：姓名、分數、錯誤次數清楚易辨，保留其餘欄位 */
+.result-mode .cert-student strong{font-size:clamp(1.35rem,5vw,1.85rem)!important;font-weight:950!important;line-height:1.2!important;overflow-wrap:anywhere}
+.result-mode .cert-student span{font-size:.78rem!important;font-weight:800!important}
+.result-mode .cert-score-number #certscore{font-size:clamp(2.8rem,10vw,3.6rem)!important;font-weight:950!important}
+.result-mode .cert-mistakes{font-size:clamp(.97rem,3.7vw,1.22rem)!important;font-weight:950!important;color:#7c2d12!important;background:#fff0cf!important;border:2px solid #f5bd64!important;line-height:1.2!important}
+@media(max-width:380px){.result-mode .cert-student strong{font-size:1.27rem!important}.result-mode .cert-score-number #certscore{font-size:2.6rem!important}.result-mode .cert-mistakes{font-size:.96rem!important}}
+@media(max-height:720px) and (max-width:700px){.result-mode .cert-student strong{font-size:1.22rem!important}.result-mode .cert-score-number #certscore{font-size:2.55rem!important}.result-mode .cert-mistakes{font-size:.93rem!important}}
 </style></head><body><main><header><h1>🚦 Queue Challenge｜佇列闖關</h1><div class="muted">三種佇列 × 五關挑戰｜操作正確才能過關｜滿分 100 分</div><p>學生姓名：<input id="student" placeholder="請輸入真實姓名" maxlength="30"> <button id="start" class="primary">開始挑戰</button></p></header><div class="layout"><section><div class="panel"><div class="levels" id="levels"></div></div><div class="panel"><h2 id="title">請先輸入姓名並開始</h2><p id="intro" class="muted">每關依序完成指定操作。系統會即時顯示佇列變化。</p><div id="task"></div><div class="slots" id="slots"></div><p id="pointers" class="muted"></p><div class="controls" id="controls"></div><div class="message" id="message" aria-live="polite">準備好了就開始吧！</div></div></section><aside class="panel" style="display:none"><h2>即時成績</h2><div id="score" class="score">0 / 100</div><div id="nameview">姓名：尚未設定</div><div id="mistakeview" class="mistake-view">🧩 答錯次數：0 次</div><div id="progress"></div><hr><p class="muted">每關獨立計分 20 分；可自由切換關卡，進度會保留。</p><button id="showresult" style="width:100%;margin:8px 0" class="primary">查看目前成績單</button><button id="reset" style="width:100%">重新挑戰</button></aside></div><div id="certificate" class="panel certificate hide" aria-label="Queue Challenge 學習成績單">
 <div class="cert-spark cert-spark-left" aria-hidden="true">✦</div><div class="cert-spark cert-spark-right" aria-hidden="true">✳</div>
 <div class="cert-mascot" id="certmascot" aria-hidden="true">🏆</div>
@@ -221,6 +229,7 @@ function pickDelete(index){
  const mode=defs[active].mode; const operation=defs[active].steps[step][0]; const correct=mode==='deque'?(operation==='popback'?queue.length-1:0):(mode==='circular'?(front+1)%5:front+1);
  const value=queue[index];
  if(index!==correct){
+   recordMistake(); // 每一次點錯刪除資料格，都累計一次錯誤
    const msg=mode==='deque'?'雙端佇列可以從兩端刪除，但必須依任務選擇正確的前端或後端。':index<=front
      ?'這一格已經在 Front 的位置或其前方，不是目前佇列的第一筆有效資料。'
      :'Queue 是 FIFO（先進先出），不能跳過前面的資料，直接刪除後面這一格。';
