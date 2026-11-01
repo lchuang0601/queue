@@ -66,13 +66,10 @@ button:focus-visible,.slot:focus-visible,input:focus-visible{outline:3px solid #
 .cert-status{max-width:520px;padding:12px 16px;border-radius:15px;background:#f1f0ff;color:#6253a0}
 .cert-story{width:min(100%,520px);box-sizing:border-box;padding:13px 15px;border-radius:17px;background:linear-gradient(120deg,#f5ecff,#eaf8ff);border:1px solid #e5d8fb;color:#5d4b8e;font-size:.95rem;font-weight:750;line-height:1.65}
 .cert-stars{letter-spacing:7px;font-size:1.35rem;line-height:1.4}
-.cert-confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.cert-confetti i{position:absolute;top:-18px;left:var(--x);width:9px;height:15px;background:var(--c);border-radius:3px;opacity:.8;transform:rotate(var(--r));animation:confetti-fall var(--t) linear infinite;animation-delay:var(--d)}
-@keyframes confetti-fall{0%{transform:translateY(-25px) rotate(0);opacity:0}15%{opacity:.9}100%{transform:translateY(750px) rotate(450deg);opacity:0}}
 @keyframes mascot-bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-7px) rotate(5deg)}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 @media(max-width:680px){header{padding:17px 14px}header:after{right:12px;top:12px;font-size:1rem}header h1{padding-right:58px}.slots{gap:5px}.slot{min-height:70px;border-radius:12px}.levels button{min-width:58px;padding:10px 5px;font-size:.83rem}.controls button{min-width:100px}.task-alert{font-size:1rem}.result-mode #certificate{padding:17px 9px 14px}.cert-mascot{font-size:56px}.cert-story{font-size:.84rem;padding:10px}.cert-stars{font-size:1rem}}
-@media print{.cert-confetti{display:none}}
+
 
 .mistake-view{margin:10px 0;padding:10px 12px;background:#fff4dc;color:#8d5517;border:1px solid #f5d08c;border-radius:12px;font-weight:800}.cert-mistakes{border-radius:14px;background:#fff2df;border:2px solid #ffcc81;color:#8e571b;padding:12px 16px;font-size:1rem;font-weight:900;text-align:center}.cert-level-errors{font-size:.74rem;color:#945b40;margin-top:5px;font-weight:700}@media(max-width:480px){.cert-mistakes{font-size:.85rem;padding:9px 6px}.cert-level-errors{font-size:.66rem}}
 
@@ -83,9 +80,45 @@ button:focus-visible,.slot:focus-visible,input:focus-visible{outline:3px solid #
 .start-modal.hide{display:none}.start-modal-card{width:min(100%,520px);max-height:90vh;overflow:auto;border:4px solid #fff;border-radius:27px;padding:26px 22px;background:linear-gradient(150deg,#fff3fa,#fffef5 55%,#e9f8ff);box-shadow:0 25px 75px #171a4555;text-align:center;box-sizing:border-box}
 .start-emoji{font-size:2.4rem}.start-modal-card h2{font-size:1.5rem;color:#6c4bb5}.start-modal-card p{line-height:1.8;color:#35415d}.start-modal-card strong{color:#b52963}.start-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}.start-actions button{flex:1;min-width:145px}.start-actions .primary{background:#7653d4}
 @media(max-width:480px){.cert-time{font-size:.78rem;padding:8px 6px}.start-modal-card{padding:20px 14px}}
+
+/* 手機成績單：完整資訊優先，縮成單頁截圖尺寸 */
+.result-mode main{max-width:520px;padding:5px!important}
+.result-mode #certificate{gap:5px!important;padding:9px 9px 8px!important;border-width:2px!important;border-radius:16px!important;box-shadow:0 4px 14px #7653a522!important}
+.result-mode .cert-mascot{font-size:33px!important;line-height:1!important;margin:0!important}
+.result-mode .cert-eyebrow{font-size:.65rem!important;line-height:1.1!important}
+.result-mode .certificate h2{font-size:1.17rem!important;line-height:1.2!important;margin:0!important}
+.result-mode .cert-subtitle{font-size:.69rem!important;margin:0!important;line-height:1.2!important}
+.result-mode .cert-student{padding:5px 9px!important;border-radius:10px!important;margin:0!important;line-height:1.25!important}
+.result-mode .cert-student span{font-size:.67rem!important}
+.result-mode .cert-student strong{font-size:1rem!important;margin:0!important}
+.result-mode .cert-score-card{padding:6px 8px!important;border-radius:13px!important;box-shadow:none!important;margin:0!important}
+.result-mode .cert-score-caption{font-size:.7rem!important;line-height:1.1!important}
+.result-mode .cert-score-number{line-height:1!important;margin:0!important}
+.result-mode .cert-score-number #certscore{font-size:2.45rem!important;line-height:1!important;letter-spacing:-1px!important}
+.result-mode .cert-score-number small{font-size:.88rem!important}
+.result-mode .cert-score-note{font-size:.67rem!important;padding:2px 9px!important;line-height:1.25!important}
+.result-mode .cert-mistakes{padding:5px!important;font-size:.76rem!important;border-width:1px!important;border-radius:9px!important;line-height:1.25!important}
+.result-mode .cert-time{padding:5px!important;font-size:.7rem!important;border-radius:9px!important;line-height:1.35!important}
+.result-mode .cert-section-heading{font-size:.83rem!important;line-height:1.1!important;margin:1px 0!important}
+.result-mode .cert-level-grid{width:100%!important;gap:3px!important;margin:0!important}
+.result-mode .cert-level{padding:4px 1px!important;border-radius:8px!important;box-shadow:none!important;min-width:0!important}
+.result-mode .cert-level-icon{font-size:.88rem!important;line-height:1!important}
+.result-mode .cert-level-label{font-size:.64rem!important;line-height:1.15!important}
+.result-mode .cert-level-points{font-size:.95rem!important;line-height:1.1!important}
+.result-mode .cert-level-points small{font-size:.6rem!important}
+.result-mode .cert-level-state{font-size:.55rem!important;line-height:1.1!important}
+.result-mode .cert-level-errors{font-size:.57rem!important;margin-top:2px!important;line-height:1.15!important}
+.result-mode .cert-stars{font-size:.75rem!important;line-height:1!important;margin:0!important}
+.result-mode .cert-status{font-size:.7rem!important;line-height:1.2!important;margin:0!important}
+.result-mode .cert-story{font-size:.69rem!important;line-height:1.3!important;padding:5px 8px!important;margin:0!important;border-radius:8px!important}
+.result-mode .cert-foot{font-size:.67rem!important;line-height:1.2!important;margin:0!important}
+.result-mode #backgame{font-size:.69rem!important;padding:4px 10px!important;margin:0!important}
+.result-mode .cert-spark{font-size:14px!important}
+@media(max-width:380px){.result-mode #certificate{gap:3px!important;padding:7px 6px!important}.result-mode .cert-mascot{font-size:27px!important}.result-mode .cert-story{font-size:.62rem!important}.result-mode .cert-level-errors{font-size:.52rem!important}}
+@media(max-height:720px) and (max-width:700px){.result-mode #certificate{gap:3px!important;padding:6px!important}.result-mode .cert-mascot{font-size:25px!important}.result-mode .cert-subtitle,.result-mode .cert-stars{display:none!important}.result-mode .cert-story{padding:4px!important;font-size:.63rem!important}.result-mode .cert-score-number #certscore{font-size:2.1rem!important}.result-mode .cert-student{padding:3px!important}.result-mode .cert-level{padding:2px 1px!important}}
 </style></head><body><main><header><h1>🚦 Queue Challenge｜佇列闖關</h1><div class="muted">三種佇列 × 五關挑戰｜操作正確才能過關｜滿分 100 分</div><p>學生姓名：<input id="student" placeholder="請輸入真實姓名" maxlength="30"> <button id="start" class="primary">開始挑戰</button></p></header><div class="layout"><section><div class="panel"><div class="levels" id="levels"></div></div><div class="panel"><h2 id="title">請先輸入姓名並開始</h2><p id="intro" class="muted">每關依序完成指定操作。系統會即時顯示佇列變化。</p><div id="task"></div><div class="slots" id="slots"></div><p id="pointers" class="muted"></p><div class="controls" id="controls"></div><div class="message" id="message" aria-live="polite">準備好了就開始吧！</div></div></section><aside class="panel" style="display:none"><h2>即時成績</h2><div id="score" class="score">0 / 100</div><div id="nameview">姓名：尚未設定</div><div id="mistakeview" class="mistake-view">🧩 答錯次數：0 次</div><div id="progress"></div><hr><p class="muted">每關獨立計分 20 分；可自由切換關卡，進度會保留。</p><button id="showresult" style="width:100%;margin:8px 0" class="primary">查看目前成績單</button><button id="reset" style="width:100%">重新挑戰</button></aside></div><div id="certificate" class="panel certificate hide" aria-label="Queue Challenge 學習成績單">
 <div class="cert-spark cert-spark-left" aria-hidden="true">✦</div><div class="cert-spark cert-spark-right" aria-hidden="true">✳</div>
-<div class="cert-confetti" aria-hidden="true" id="confetti"></div><div class="cert-mascot" id="certmascot" aria-hidden="true">🏆</div>
+<div class="cert-mascot" id="certmascot" aria-hidden="true">🏆</div>
 <div class="cert-eyebrow">🌟 QUEUE CHALLENGE 🌟</div>
 <h2>佇列闖關・學習成績單</h2>
 <div class="cert-subtitle">每一步努力，都值得被看見！</div>
@@ -112,6 +145,10 @@ let active=-1,step=0,queue=[],front=-1,rear=-1,count=0,passed=[false,false,false
  else if(defs[active].mode==='deque')ops=ops.filter(o=>o[0]==='front'||o[0]==='back');
  if(t==='blockedEnq')ops=[['enq',20]];
  if(t==='blockedCircularEnq')ops=[['enq',33]];
+ if(active===3 && ['empty','full','notfull'].includes(t)){
+  return [['empty','A. Empty（空佇列）'],['full','B. Full（滿佇列）'],['notfull','C. 非空且未滿'],['wrap','D. 假溢位（前方有空位，但 Rear 無法新增）']]
+   .map(([kind,txt])=>`<button data-op="${kind}" data-val="">${txt}</button>`).join('');
+ }
  return ops.map(o=>`<button data-op="${o[0]}" data-val="${o[1]??''}">${o[0]==='enq'?'Enqueue('+o[1]+')':o[0]==='deq'?'Dequeue()':label(o)}</button>`).join('')
 }
 function recordMistake(){if(active>=0&&active<5){mistakes[active]++;updateMistakeUI()}}function updateMistakeUI(){const el=$('mistakeview');if(el)el.textContent='🧩 答錯次數：'+mistakes.reduce((a,b)=>a+b,0)+' 次（本關 '+(active>=0?mistakes[active]:0)+' 次）'}function showError(type,val,expected){recordMistake();
@@ -147,9 +184,9 @@ function showResults(){
  $('certname').textContent=name();
  $('certscore').textContent=total;
  const totalMistakes=mistakes.reduce((a,b)=>a+b,0);
- $('certmistakes').textContent='🧩 本次答錯 '+totalMistakes+' 次｜答錯不扣分';
+ $('certmistakes').textContent='🧩 答錯 '+totalMistakes+' 次（不扣分）';
  const end=finishedAt||new Date(); const duration=startedAt?Math.max(0,Math.floor((end-startedAt)/1000)):0; const hh=Math.floor(duration/3600),mm=Math.floor(duration%3600/60),ss=duration%60; const timeStr=(hh?String(hh).padStart(2,'0')+':':'')+String(mm).padStart(2,'0')+':'+String(ss).padStart(2,'0');
- $('certtime').textContent='📅 '+(finishedAt?'完成時間':'目前紀錄時間')+'：'+end.toLocaleString('zh-TW',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false})+'　⏱️ 挑戰歷時：'+timeStr;
+ $('certtime').textContent='📅 '+(finishedAt?'完成時間':'目前紀錄時間')+'：'+end.toLocaleString('zh-TW',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false})+'｜⏱️ 歷時 '+timeStr;
  $('certbadge').textContent=total===100?'👑 滿分小達人！':total>=60?'🌈 持續突破中！':'💪 每一關都是進步！';
  $('certlevels').innerHTML=passed.map((v,i)=>`<div class="cert-level ${v?'cert-done':'cert-pending'}"><div class="cert-level-icon">${v?'⭐':'🔒'}</div><div class="cert-level-label">第 ${i+1} 關</div><div class="cert-level-points">${v?'20':'0'} <small>分</small></div><div class="cert-level-state">${v?'完成挑戰':'尚未完成'}</div><div class="cert-level-errors">答錯 ${mistakes[i]} 次</div></div>`).join('');
  $('certstatus').textContent=total===100?'🎊 太棒了！五關全部完成，恭喜獲得滿分！':'🌱 已獲得的分數都保留，還可以回到遊戲挑戰其他關卡！';
@@ -165,7 +202,7 @@ function showResults(){
  $('certmascot').textContent=achievement.mascot;
  $('certstars').textContent=achievement.stars;
  $('certstory').textContent=achievement.story;
- $('confetti').innerHTML=total===100?Array.from({length:22},(_,i)=>`<i style="--x:${(i*43+7)%97}%;--c:${['#ff8cad','#ffd56f','#86d6ed','#a8a0f7','#7dd8b5'][i%5]};--r:${i*31}deg;--t:${3+i%4}s;--d:-${i%5}s"></i>`).join(''):'';
+
 
  $('certificate').classList.remove('hide');document.body.classList.add('result-mode');window.scrollTo(0,0);
 }
@@ -244,6 +281,6 @@ function act(type,val){if(locked||pendingFullQuestion||pendingCircularQuestion)r
  $('message').innerHTML='<strong>⚠️ Enqueue(33) 無法執行！</strong><div>此時下一格 index 1 必須保留。請回答下方兩題，答對才能過關；33 不會真的加入佇列。</div>';
  render();return;
  }
- if(expected[0]==='blockedEnq'){if(type!=='enq'||val!==20){showError(type,val,expected);return}if(rear!==4){showError(type,val,expected);return}pendingFullQuestion=true;fullQuizStage=0;$('message').className='message error';$('message').innerHTML='<strong>⚠️ Enqueue(20) 失敗！</strong><div>Rear 已到達陣列最後一格。請回答下方問題，答對才算完成任務。</div>';render();return}let ok=type===expected[0]&&(expected[1]===undefined||expected[1]===val||['deq','wrap'].includes(type)||type.startsWith('pop'));if(!ok){showError(type,val,expected);return}let mode=defs[active].mode;if(type==='enq'){if((mode==='circular'&&count>=4)||(mode==='linear'&&(count>=5||rear===4))){ showError(type,val,expected);return}rear=mode==='circular'?(rear+1)%5:rear+1;queue[rear]=val;count++}else if(type==='deq'){if(count===0){showError(type,val,expected);return}let next=mode==='circular'?(front+1)%5:front+1;let old=queue[next];if(old!==expected[1]){showError(type,val,expected);return}delete queue[next];count--;front=next}else if(type==='front'){queue.unshift(val)}else if(type==='back'){queue.push(val)}else if(type==='popfront'){if(queue[0]!==expected[1]){showError(type,val,expected);return}queue.shift()}else if(type==='popback'){if(queue[queue.length-1]!==expected[1]){showError(type,val,expected);return}queue.pop()}else if(type==='full'){if(mode==='linear'&&rear!==4){showError(type,val,expected);return}if(mode==='circular'&&count!==4){showError(type,val,expected);return}}else if(type==='empty'){if(count!==0){showError(type,val,expected);return}}else if(type==='notfull'){if(count>=(mode==='circular'?4:5)){showError(type,val,expected);return}}else if(type==='wrap'){if(rear!==0){showError(type,val,expected);return}}step++;$('message').className='message success';$('message').textContent=(type==='deq'&&active===0?'答對了！你選的是 Front 往後一格的第一筆有效資料。刪除後 Front 會前進，Rear 不變。':'答對了！')+(step===defs[active].steps.length?' 本關完成，獲得 20 分。':' 請繼續下一個任務。');if(step===defs[active].steps.length)completeLevel();else render();}
+ if(expected[0]==='blockedEnq'){if(type!=='enq'||val!==20){showError(type,val,expected);return}if(rear!==4){showError(type,val,expected);return}pendingFullQuestion=true;fullQuizStage=0;$('message').className='message error';$('message').innerHTML='<strong>⚠️ Enqueue(20) 失敗！</strong><div>Rear 已到達陣列最後一格。請回答下方問題，答對才算完成任務。</div>';render();return}let ok=type===expected[0]&&(expected[1]===undefined||expected[1]===val||['deq','wrap'].includes(type)||type.startsWith('pop'));if(!ok){showError(type,val,expected);return}let mode=defs[active].mode;if(type==='enq'){if((mode==='circular'&&count>=4)||(mode==='linear'&&(count>=5||rear===4))){ showError(type,val,expected);return}rear=mode==='circular'?(rear+1)%5:rear+1;queue[rear]=val;count++}else if(type==='deq'){if(count===0){showError(type,val,expected);return}let next=mode==='circular'?(front+1)%5:front+1;let old=queue[next];if(old!==expected[1]){showError(type,val,expected);return}delete queue[next];count--;front=next}else if(type==='front'){queue.unshift(val)}else if(type==='back'){queue.push(val)}else if(type==='popfront'){if(queue[0]!==expected[1]){showError(type,val,expected);return}queue.shift()}else if(type==='popback'){if(queue[queue.length-1]!==expected[1]){showError(type,val,expected);return}queue.pop()}else if(type==='full'){if(mode==='linear'&&rear!==4){showError(type,val,expected);return}if(mode==='circular'&&count!==4){showError(type,val,expected);return}}else if(type==='empty'){if(count!==0){showError(type,val,expected);return}}else if(type==='notfull'){if(count>=(mode==='circular'?4:5)){showError(type,val,expected);return}}else if(type==='wrap'){if(rear!==0){showError(type,val,expected);return}}step++;$('message').className='message success';$('message').textContent=(type==='deq'&&active===0?'答對了！你選的是 Front 往後一格的第一筆有效資料。刪除後 Front 會前進，Rear 不變。':'答對了！')+(step===defs[active].steps.length?' 本關完成！':' 請繼續下一個任務。');if(step===defs[active].steps.length)completeLevel();else render();}
 $('start').onclick=()=>{if(!name()){alert('請先輸入學生姓名');$('student').focus();return}if(active>=0&&!confirm('重新開始會清除原有成績，確定嗎？'))return;$('startmodal').classList.remove('hide')};$('cancelstart').onclick=()=>$('startmodal').classList.add('hide');$('confirmstart').onclick=()=>{$('startmodal').classList.add('hide');startedAt=new Date();finishedAt=null;passed=[false,false,false,false,false];levelStates=Array(5).fill(null);mistakes=[0,0,0,0,0];active=0;step=0;queue=[];front=-1;rear=-1;count=0;locked=false;pendingFullQuestion=false;pendingCircularQuestion=false;circularQuizStage=0;fullQuizStage=0;$('student').disabled=true;$('message').textContent='開始挑戰！請依任務操作。';render()};$('showresult').onclick=showResults;$('backgame').onclick=()=>{document.body.classList.remove('result-mode');$('certificate').classList.add('hide');render()};$('reset').onclick=()=>{if(!confirm('確定清除本次成績並重新開始？'))return;location.reload()};
 </script></body></html>
